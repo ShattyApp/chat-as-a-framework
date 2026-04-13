@@ -1,38 +1,38 @@
 # chat-as-a-framework
 
-Framework comum para construir experiências de chat com **uma base única** e múltiplos sabores de entrega:
-- app dedicado (Expo / React Native)
-- embed em produtos terceiros
-- integração com stack Web3/XMTP
-- distribuição por NPM
+A common framework for building chat experiences with **one shared base** and multiple delivery flavors:
+- dedicated app (Expo / React Native)
+- embed in third-party products
+- integration with Web3/XMTP stack
+- distribution through NPM
 
-## O que já foi implementado (essência/base)
+## What has already been implemented (core/base)
 
-Este repositório já está com a **foundation inicial** pronta:
+This repository already has the initial **foundation** in place:
 
-- Monorepo com `pnpm workspace` + `turborepo`
-- Estrutura de `apps/` e `packages/`
-- Configuração TypeScript base compartilhada
-- Núcleo funcional inicial em `@chat-fw/chat-core`
-- Adapter XMTP inicial em `@chat-fw/chat-xmtp`
-- Placeholders para pacotes de UI e bindings (`chat-ui`, `chat-next`, `chat-react-native`)
+- Monorepo with `pnpm workspace` + `turborepo`
+- `apps/` and `packages/` structure
+- Shared base TypeScript configuration
+- Initial functional core in `@chat-fw/chat-core`
+- Initial XMTP adapter in `@chat-fw/chat-xmtp`
+- Placeholders for UI packages and bindings (`chat-ui`, `chat-next`, `chat-react-native`)
 
-## Estrutura do monorepo
+## Monorepo structure
 
 ```txt
 apps/
-  expo/                # app dedicado (placeholder da fase foundation)
-  web/                 # shell Next.js (placeholder da fase foundation)
+  expo/                # dedicated app (foundation-phase placeholder)
+  web/                 # Next.js shell (foundation-phase placeholder)
 packages/
-  chat-core/           # domínio de chat (models + contratos + client)
-  chat-ui/             # componentes (placeholder)
-  chat-xmtp/           # adapter XMTP inicial
-  chat-next/           # bindings Next.js (placeholder)
-  chat-react-native/   # bindings Expo/RN (placeholder)
-  config/              # presets compartilhados (placeholder)
+  chat-core/           # chat domain (models + contracts + client)
+  chat-ui/             # components (placeholder)
+  chat-xmtp/           # initial XMTP adapter
+  chat-next/           # Next.js bindings (placeholder)
+  chat-react-native/   # Expo/RN bindings (placeholder)
+  config/              # shared presets (placeholder)
 ```
 
-## Exemplo de uso da base atual
+## Current base usage example
 
 ```ts
 import { createChatClient } from '@chat-fw/chat-core'
@@ -49,14 +49,14 @@ await chat.sendMessage({
 })
 ```
 
-## Scripts de workspace
+## Workspace scripts
 
-Na raiz do projeto:
+At the project root:
 
-- `pnpm build` — roda build em todos os pacotes com Turbo
-- `pnpm dev` — roda `dev` em paralelo
-- `pnpm typecheck` — valida tipagem nos pacotes
+- `pnpm build` — runs build for all packages with Turbo
+- `pnpm dev` — runs `dev` in parallel
+- `pnpm typecheck` — validates package typing
 
-## Tarefas e próximos passos
+## Tasks and next steps
 
-Os itens de tarefa foram movidos para [`to-do.md`](./to-do.md).
+Task items were moved to [`to-do.md`](./to-do.md).

@@ -1,23 +1,23 @@
-# Shatty 2014 — observações para reprodução fiel
+# Shatty 2014 — notes for faithful reproduction
 
-## Versão v2 concluída (foco: histórico de conversas)
-- **Semântica de tela inicial**: labels e `aria-labels` reforçam que este mock é de **histórico de conversas**, não de sala de chat em tempo real.
-- **Pixel-parity por inspeção visual**:
-  - escalas de tipografia elevadas para aproximar o rendering antigo,
-  - ajustes de espaçamento por faixa (topo, barra verde, tabs, lista, rodapé),
-  - separadores tracejados e alinhamentos dos balões refinados,
-  - inclusão de thumb circular sobreposta na terceira conversa para espelhar a referência.
-- **Semântica explícita da lista**:
-  - terceira conversa marcada com `data-last-message-by="self"` e comentário em código explicando que a foto sobreposta aparece porque a última mensagem foi enviada pela própria user;
-  - última conversa marcada como grupo (`data-conversation-type="group"`) e preview começando pelo remetente (`Eduardo:`), como no mock.
+## v2 completed (focus: conversation history)
+- **Initial screen semantics**: labels and `aria-labels` reinforce that this mock is **conversation history**, not a real-time chat room.
+- **Pixel parity through visual inspection**:
+  - typography scales were increased to better match old rendering,
+  - spacing adjustments by section (top, green bar, tabs, list, footer),
+  - dashed separators and message-bubble alignments refined,
+  - circular thumbnail overlay added on the third conversation to mirror the reference.
+- **Explicit list semantics**:
+  - third conversation tagged with `data-last-message-by="self"` and an inline code comment explaining that the overlaid photo appears because the last message was sent by the user themself;
+  - last conversation marked as a group (`data-conversation-type="group"`) and preview starting with the sender (`Eduardo:`), matching the mock.
 
-## Estado dos ícones/glifos
-- Mantidos como fallback textual/Unicode para preservar portabilidade offline.
-- Próximo passo opcional: mapear glifos exatos com base em fontes legadas (IcoMoon/Fontello/FA 3-4) e converter em subset local.
+## Icon/glyph state
+- Kept as textual/Unicode fallback to preserve offline portability.
+- Optional next step: map exact glyphs based on legacy fonts (IcoMoon/Fontello/FA 3-4) and convert to a local subset.
 
-## Próximo upgrade sugerido
-- ✅ Implementado: modo de comparação visual local com:
-  - toggle de grid (`show-grid`),
-  - toggle de overlay da imagem de referência (`data-reference-visible`),
-  - controle de opacidade via slider (`--reference-opacity`).
-- Para usar: salvar a referência em `apps/web/reference/shatty-history-reference.png` e abrir `shatty-2014.html`.
+## Suggested next upgrade
+- ✅ Implemented: local visual comparison mode with:
+  - grid toggle (`show-grid`),
+  - reference-image overlay toggle (`data-reference-visible`),
+  - opacity control via slider (`--reference-opacity`).
+- Usage: save the reference at `apps/web/reference/shatty-history-reference.png` and open `shatty-2014.html`.

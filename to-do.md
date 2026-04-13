@@ -1,8 +1,8 @@
 # To-do
 
-## Roadmap curto (próxima etapa)
+## Short roadmap (next step)
 
-1. Trocar placeholders de `apps/expo` e `apps/web` por apps reais (Expo + Next.js).
-2. Evoluir `chat-core` para suportar conversas, sincronização e eventos.
-3. Conectar `chat-ui` ao `chat-core` com componentes mínimos de lista + composer.
-4. Publicar `@chat-fw/chat-core` e `@chat-fw/chat-xmtp` como alpha interno no NPM.
+1. Replace `apps/expo` and `apps/web` placeholders with real apps (Expo + Next.js).
+2. Evolve `chat-core` to support conversations, synchronization, and events.
+3. Connect `chat-ui` to `chat-core` with minimal list + composer components.
+4. Publish `@chat-fw/chat-core` and `@chat-fw/chat-xmtp` as internal alpha packages on NPM.
