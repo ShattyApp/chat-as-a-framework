@@ -1,0 +1,10 @@
+{
+  "name": "@chat-fw/config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "echo 'TODO: build config'",
+    "typecheck": "echo 'TODO: typecheck config'"
+  }
+}

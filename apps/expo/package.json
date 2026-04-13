@@ -1,0 +1,10 @@
+{
+  "name": "@chat-fw/expo-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'TODO: expo app'",
+    "build": "echo 'TODO: expo build'",
+    "typecheck": "echo 'TODO: expo typecheck'"
+  }
+}
