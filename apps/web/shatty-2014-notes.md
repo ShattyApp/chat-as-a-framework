@@ -1,7 +1,6 @@
 # Shatty 2014 — observações para reprodução fiel
 
 ## Versão v2 concluída (foco: histórico de conversas)
-- **Sem molde de celular**: a composição agora representa diretamente a tela da página inicial de conversas, sem carcaça/shell de smartphone.
 - **Semântica de tela inicial**: labels e `aria-labels` reforçam que este mock é de **histórico de conversas**, não de sala de chat em tempo real.
 - **Pixel-parity por inspeção visual**:
   - escalas de tipografia elevadas para aproximar o rendering antigo,
