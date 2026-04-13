@@ -1,9 +1,9 @@
-# Referência visual do mock 2014
+# Visual reference for the 2014 mock
 
-Coloque aqui a captura usada como base para pixel-parity com o nome:
+Place the screenshot used as the pixel-parity base here, named:
 
 - `shatty-history-reference.png`
 
-Arquivo esperado em runtime:
+Expected runtime file:
 
 - `apps/web/reference/shatty-history-reference.png`

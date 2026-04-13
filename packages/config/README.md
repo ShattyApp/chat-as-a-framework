@@ -1,3 +1,3 @@
 # @chat-fw/config
 
-Pacote placeholder da fase foundation.
+Foundation-phase placeholder package.
