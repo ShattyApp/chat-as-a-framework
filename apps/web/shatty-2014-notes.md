@@ -1,24 +1,23 @@
 # Shatty 2014 — observações para reprodução fiel
 
-## Decisões nesta primeira reconstrução
-- **Balões em CSS**: implementados com `border-radius` + pseudo-elemento triangular (`::before`).
-- **Estrutura visual**: shell de celular, topo escuro, barra verde de rota, tabs em fundo verde claro, lista de mensagens com separadores pontilhados, barra inferior escura.
-- **Cores**: aproximadas por inspeção visual manual da imagem de referência.
+## Versão v2 concluída (foco: histórico de conversas)
+- **Semântica de tela inicial**: labels e `aria-labels` reforçam que este mock é de **histórico de conversas**, não de sala de chat em tempo real.
+- **Pixel-parity por inspeção visual**:
+  - escalas de tipografia elevadas para aproximar o rendering antigo,
+  - ajustes de espaçamento por faixa (topo, barra verde, tabs, lista, rodapé),
+  - separadores tracejados e alinhamentos dos balões refinados,
+  - inclusão de thumb circular sobreposta na terceira conversa para espelhar a referência.
+- **Semântica explícita da lista**:
+  - terceira conversa marcada com `data-last-message-by="self"` e comentário em código explicando que a foto sobreposta aparece porque a última mensagem foi enviada pela própria user;
+  - última conversa marcada como grupo (`data-conversation-type="group"`) e preview começando pelo remetente (`Eduardo:`), como no mock.
 
-## O que investigar para ficar "fullest possible"
-1. **Fonte original**
-   - A captura parece usar uma fonte sans antiga estilo Android 4.x/5.x.
-2. **Ícones da tab bar superior**
-   - Forte chance de set de fonte de ícones tipo **IcoMoon/Fontello** pela estética linear e época (2014).
-   - Próximo passo: comparar os glifos com pacotes legados (`icomoon-free`, `font-awesome 3/4`, `typicons`).
-3. **Top bar brand icons (esferas roxas)**
-   - Possível sprite PNG + glow, não necessariamente fonte de ícone.
-4. **Balões SVG vs CSS**
-   - CSS entrega rápido e leve para app legado.
-   - SVG ajuda se quisermos pixel parity com curvas específicas e sombras internas.
+## Estado dos ícones/glifos
+- Mantidos como fallback textual/Unicode para preservar portabilidade offline.
+- Próximo passo opcional: mapear glifos exatos com base em fontes legadas (IcoMoon/Fontello/FA 3-4) e converter em subset local.
 
 ## Próximo upgrade sugerido
-- Criar versão **pixel-parity** com:
-  - escala baseada em grid da imagem original,
-  - uso de fonte web próxima à original,
-  - assets dedicados para os ícones superiores e nav inferior.
+- ✅ Implementado: modo de comparação visual local com:
+  - toggle de grid (`show-grid`),
+  - toggle de overlay da imagem de referência (`data-reference-visible`),
+  - controle de opacidade via slider (`--reference-opacity`).
+- Para usar: salvar a referência em `apps/web/reference/shatty-history-reference.png` e abrir `shatty-2014.html`.

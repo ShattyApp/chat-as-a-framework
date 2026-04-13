@@ -3,69 +3,126 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shatty 2014 GUI - Reconstruction v1</title>
+    <title>Shatty 2014 - Histórico de Conversas (v2)</title>
     <link rel="stylesheet" href="./shatty-2014.css" />
   </head>
   <body>
-    <main class="phone-shell" aria-label="Mockup estilo Shatty 2014">
+    <section class="pixel-tools" aria-label="Ferramentas de pixel parity">
+      <label>
+        <input id="toggle-grid" type="checkbox" checked />
+        Grid overlay
+      </label>
+      <label>
+        <input id="toggle-reference" type="checkbox" />
+        Sobrepor imagem de referência
+      </label>
+      <label for="reference-opacity">Opacidade da referência</label>
+      <input id="reference-opacity" type="range" min="0" max="100" value="35" />
+      <p>
+        Dica: adicione a referência em
+        <code>apps/web/reference/shatty-history-reference.png</code> para comparar.
+      </p>
+    </section>
+
+    <main
+      class="history-shell show-grid"
+      aria-label="Página inicial de histórico de conversas do Shatty"
+      data-reference-visible="false"
+    >
+      <img
+        class="reference-overlay"
+        src="./reference/shatty-history-reference.png"
+        alt=""
+        aria-hidden="true"
+      />
       <header class="top-brand">
-        <span class="orb"></span>
+        <span class="orb" aria-hidden="true"></span>
         <h1>Plasmmer</h1>
-        <span class="orb"></span>
+        <span class="orb" aria-hidden="true"></span>
       </header>
 
-      <section class="conversation-path">Communicator &gt; Conversas</section>
+      <section class="conversation-path">
+        <span class="route-icon" aria-hidden="true">☞</span>
+        <strong>Communicator</strong>
+        <span class="separator">&gt;</span>
+        <span>Conversas</span>
+      </section>
 
-      <nav class="tabs" aria-label="Barra de abas">
-        <button>◷</button>
-        <button>☰</button>
-        <button>👥</button>
-        <button>⚙</button>
+      <nav class="tabs" aria-label="Atalhos de navegação">
+        <button aria-label="Recentes">◷</button>
+        <button aria-label="Lista">☰</button>
+        <button aria-label="Contatos">👥</button>
+        <button aria-label="Configurações">⚙</button>
       </nav>
 
-      <section class="messages" aria-label="Mensagens">
-        <article class="msg-row incoming green">
+      <section class="messages" aria-label="Histórico de conversas">
+        <article class="msg-row green">
           <span class="avatar"></span>
           <div class="bubble-wrap">
-            <h2>Ricardo</h2>
+            <h2>Ricardo ███████</h2>
             <div class="bubble">Oh ponha eu também</div>
-            <time>30/07/2014</time>
+            <time datetime="2014-07-30">30/07/2014</time>
           </div>
         </article>
 
-        <article class="msg-row incoming red">
+        <article class="msg-row red">
           <span class="avatar"></span>
           <div class="bubble-wrap">
-            <h2>Luan</h2>
+            <h2>Luan ████</h2>
             <div class="bubble">Só que eu tenho uma sugestão;</div>
-            <time>30/07/2014</time>
+            <time datetime="2014-07-30">30/07/2014</time>
           </div>
         </article>
 
-        <article class="msg-row incoming cyan">
+        <article class="msg-row cyan" data-last-message-by="self">
           <span class="avatar"></span>
           <div class="bubble-wrap">
-            <h2>Eduardo</h2>
-            <div class="bubble gray">Verdade, esse suplemento...</div>
-            <time>30/07/2014</time>
+            <h2>Eduardo █████</h2>
+            <div class="bubble gray">
+              <span class="visually-hidden">Você:</span>
+              Verdade, esse suplemento...
+            </div>
+            <!-- Foto sobreposta porque a última mensagem desta conversa foi enviada pela própria user. -->
+            <span class="photo-thumb" aria-hidden="true" title="Última mensagem enviada por você"></span>
+            <time datetime="2014-07-30">30/07/2014</time>
           </div>
         </article>
 
-        <article class="msg-row incoming pink">
+        <article class="msg-row pink" data-conversation-type="group">
           <span class="avatar group">GRUPO DA ZOEIRA</span>
           <div class="bubble-wrap">
             <h2>Grupo da Zoeira</h2>
-            <div class="bubble">Eduardo: HUEHUEBRBR</div>
-            <time>30/07/2014</time>
+            <!-- Em grupo, o preview precisa começar por quem enviou a última mensagem. -->
+            <div class="bubble"><strong class="sender-prefix">Eduardo:</strong> HUEHUEBRBR</div>
+            <time datetime="2014-07-30">30/07/2014</time>
           </div>
         </article>
       </section>
 
-      <footer class="bottom-nav" aria-label="Navegação inferior">
-        <button>☷</button>
-        <button class="home">⌂</button>
-        <button>↶</button>
+      <footer class="bottom-nav" aria-label="Navegação principal">
+        <button aria-label="Menu">☷</button>
+        <button class="home" aria-label="Home">⌂</button>
+        <button aria-label="Voltar">↶</button>
       </footer>
     </main>
+
+    <script>
+      const shell = document.querySelector('.history-shell');
+      const gridToggle = document.querySelector('#toggle-grid');
+      const referenceToggle = document.querySelector('#toggle-reference');
+      const opacitySlider = document.querySelector('#reference-opacity');
+
+      gridToggle?.addEventListener('change', () => {
+        shell?.classList.toggle('show-grid', gridToggle.checked);
+      });
+
+      referenceToggle?.addEventListener('change', () => {
+        shell?.setAttribute('data-reference-visible', referenceToggle.checked ? 'true' : 'false');
+      });
+
+      opacitySlider?.addEventListener('input', () => {
+        shell?.style.setProperty('--reference-opacity', String(Number(opacitySlider.value) / 100));
+      });
+    </script>
   </body>
 </html>
