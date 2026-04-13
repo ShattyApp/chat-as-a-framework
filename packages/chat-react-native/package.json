@@ -1,0 +1,10 @@
+{
+  "name": "@chat-fw/chat-react-native",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "echo 'TODO: build chat-react-native'",
+    "typecheck": "echo 'TODO: typecheck chat-react-native'"
+  }
+}

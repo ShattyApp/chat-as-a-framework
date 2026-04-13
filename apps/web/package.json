@@ -1,0 +1,10 @@
+{
+  "name": "@chat-fw/web-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'TODO: next app'",
+    "build": "echo 'TODO: next build'",
+    "typecheck": "echo 'TODO: next typecheck'"
+  }
+}
