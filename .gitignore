@@ -1,3 +1,7 @@
 node_modules/
 .turbo/
 **/.turbo/
+
+# local git-meta artifacts
+.gitmeta
+.gitmeta-cid
