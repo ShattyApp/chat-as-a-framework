@@ -47,21 +47,26 @@
           </div>
         </article>
 
-        <article class="msg-row cyan">
+        <article class="msg-row cyan" data-last-message-by="self">
           <span class="avatar"></span>
           <div class="bubble-wrap">
             <h2>Eduardo █████</h2>
-            <div class="bubble gray">Verdade, esse suplemento...</div>
-            <span class="photo-thumb" aria-hidden="true"></span>
+            <div class="bubble gray">
+              <span class="visually-hidden">Você:</span>
+              Verdade, esse suplemento...
+            </div>
+            <!-- Foto sobreposta porque a última mensagem desta conversa foi enviada pela própria user. -->
+            <span class="photo-thumb" aria-hidden="true" title="Última mensagem enviada por você"></span>
             <time datetime="2014-07-30">30/07/2014</time>
           </div>
         </article>
 
-        <article class="msg-row pink">
+        <article class="msg-row pink" data-conversation-type="group">
           <span class="avatar group">GRUPO DA ZOEIRA</span>
           <div class="bubble-wrap">
             <h2>Grupo da Zoeira</h2>
-            <div class="bubble">Eduardo: HUEHUEBRBR</div>
+            <!-- Em grupo, o preview precisa começar por quem enviou a última mensagem. -->
+            <div class="bubble"><strong class="sender-prefix">Eduardo:</strong> HUEHUEBRBR</div>
             <time datetime="2014-07-30">30/07/2014</time>
           </div>
         </article>
