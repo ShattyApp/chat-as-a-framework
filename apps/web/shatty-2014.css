@@ -3,6 +3,7 @@
   --green-main: #319f37;
   --green-soft: #d7ead3;
   --ink: #2d2d2d;
+  --reference-opacity: 0.35;
 }
 
 * {
@@ -16,13 +17,68 @@ body {
   display: grid;
   place-items: center;
   background: #dcdcdc;
+  gap: 10px;
+  padding: 16px;
+}
+
+.pixel-tools {
+  width: var(--app-width);
+  border: 1px solid #9d9d9d;
+  background: #ececec;
+  padding: 10px;
+  font-size: 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.pixel-tools label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pixel-tools p {
+  margin: 2px 0 0;
+}
+
+.pixel-tools code {
+  font-size: 11px;
 }
 
 .history-shell {
+  position: relative;
   width: var(--app-width);
   background: #f6f6f6;
   border: 1px solid #8a8a8a;
   box-shadow: 0 7px 20px rgb(0 0 0 / 25%);
+  isolation: isolate;
+}
+
+.history-shell.show-grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgb(255 0 0 / 18%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 0 0 / 18%) 1px, transparent 1px);
+  background-size: 8px 8px;
+  pointer-events: none;
+  z-index: 8;
+}
+
+.reference-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 7;
+}
+
+.history-shell[data-reference-visible='true'] .reference-overlay {
+  opacity: var(--reference-opacity);
 }
 
 .top-brand {

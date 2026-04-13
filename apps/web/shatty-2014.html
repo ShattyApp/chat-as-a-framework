@@ -7,7 +7,34 @@
     <link rel="stylesheet" href="./shatty-2014.css" />
   </head>
   <body>
-    <main class="history-shell" aria-label="Página inicial de histórico de conversas do Shatty">
+    <section class="pixel-tools" aria-label="Ferramentas de pixel parity">
+      <label>
+        <input id="toggle-grid" type="checkbox" checked />
+        Grid overlay
+      </label>
+      <label>
+        <input id="toggle-reference" type="checkbox" />
+        Sobrepor imagem de referência
+      </label>
+      <label for="reference-opacity">Opacidade da referência</label>
+      <input id="reference-opacity" type="range" min="0" max="100" value="35" />
+      <p>
+        Dica: adicione a referência em
+        <code>apps/web/reference/shatty-history-reference.png</code> para comparar.
+      </p>
+    </section>
+
+    <main
+      class="history-shell show-grid"
+      aria-label="Página inicial de histórico de conversas do Shatty"
+      data-reference-visible="false"
+    >
+      <img
+        class="reference-overlay"
+        src="./reference/shatty-history-reference.png"
+        alt=""
+        aria-hidden="true"
+      />
       <header class="top-brand">
         <span class="orb" aria-hidden="true"></span>
         <h1>Plasmmer</h1>
@@ -78,5 +105,24 @@
         <button aria-label="Voltar">↶</button>
       </footer>
     </main>
+
+    <script>
+      const shell = document.querySelector('.history-shell');
+      const gridToggle = document.querySelector('#toggle-grid');
+      const referenceToggle = document.querySelector('#toggle-reference');
+      const opacitySlider = document.querySelector('#reference-opacity');
+
+      gridToggle?.addEventListener('change', () => {
+        shell?.classList.toggle('show-grid', gridToggle.checked);
+      });
+
+      referenceToggle?.addEventListener('change', () => {
+        shell?.setAttribute('data-reference-visible', referenceToggle.checked ? 'true' : 'false');
+      });
+
+      opacitySlider?.addEventListener('input', () => {
+        shell?.style.setProperty('--reference-opacity', String(Number(opacitySlider.value) / 100));
+      });
+    </script>
   </body>
 </html>

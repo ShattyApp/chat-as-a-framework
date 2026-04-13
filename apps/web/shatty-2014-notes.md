@@ -17,4 +17,8 @@
 - Próximo passo opcional: mapear glifos exatos com base em fontes legadas (IcoMoon/Fontello/FA 3-4) e converter em subset local.
 
 ## Próximo upgrade sugerido
-- Rodar uma etapa de comparação visual por diff (overlay com opacidade) em múltiplas larguras para validar consistência de pixel-parity.
+- ✅ Implementado: modo de comparação visual local com:
+  - toggle de grid (`show-grid`),
+  - toggle de overlay da imagem de referência (`data-reference-visible`),
+  - controle de opacidade via slider (`--reference-opacity`).
+- Para usar: salvar a referência em `apps/web/reference/shatty-history-reference.png` e abrir `shatty-2014.html`.
